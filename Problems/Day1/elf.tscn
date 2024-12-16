@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdwl4atodfag8"]
+
+[ext_resource type="Texture2D" uid="uid://ftkgj3krpbkt" path="res://icon.svg" id="1_ory11"]
+[ext_resource type="Script" path="res://Problems/Day1/ElfScript.cs" id="2_wvk6d"]
+
+[node name="Elf" type="Sprite2D" node_paths=PackedStringArray("label")]
+texture = ExtResource("1_ory11")
+script = ExtResource("2_wvk6d")
+label = NodePath("RichTextLabel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -64.0
+offset_top = -86.0
+offset_right = 69.0
+offset_bottom = 67.0
+text = "12345"
+fit_content = true
