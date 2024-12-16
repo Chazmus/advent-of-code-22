@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using AdventOfCode22.Problems.Day1;
 using Godot;
@@ -10,8 +11,7 @@ public partial class Day1 : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        var input = getSampleInput();
-        var lines = input.Split('\n');
+        var lines = getRealInput();
 
         var elves = new List<Elf>();
         var currentElf = new Elf();
@@ -29,11 +29,13 @@ public partial class Day1 : Node2D
             currentElf.calories.Add(int.Parse(line));
         }
 
-        for (int i = 0; i < elves.Count; i++)
+        elves.Sort((elf, elf1) => elf1.calories.Sum().CompareTo(elf.calories.Sum()));
+
+        for (var i = 0; i < elves.Count; i++)
         {
             // Work out position, in a grid formation
-            var x = (i % 3) * 200 + 100;
-            var y = (i / 3) * 200 + 100;
+            var x = i % 5 * 200 + 100;
+            var y = i / 5 * 200 + 100;
 
             var elf = elves[i];
             var elfInstance = elfScene.Instantiate<ElfScript>();
@@ -54,7 +56,12 @@ public partial class Day1 : Node2D
         }
     }
 
-    private string getSampleInput()
+    private string[] getRealInput()
+    {
+        return File.ReadAllLines("Problems/Day1/input.txt");
+    }
+
+    private string[] getSampleInput()
     {
         return @"1000
 2000
@@ -69,7 +76,7 @@ public partial class Day1 : Node2D
 8000
 9000
 
-10000";
+10000".Split('\n');
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
