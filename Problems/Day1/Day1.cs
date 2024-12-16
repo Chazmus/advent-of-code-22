@@ -78,9 +78,4 @@ public partial class Day1 : Node2D
 
 10000".Split('\n');
     }
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-    }
 }

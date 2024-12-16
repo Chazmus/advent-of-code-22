@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqc8fd4jlk7w"]
+
+[ext_resource type="Script" path="res://Problems/Day2/Day2.cs" id="1_ys1ma"]
+[ext_resource type="Texture2D" uid="uid://3xcfmy3hn8i5" path="res://Problems/Day2/Rock.jpeg" id="2_pd4jb"]
+
+[node name="Day2" type="Node2D" node_paths=PackedStringArray("left", "right")]
+script = ExtResource("1_ys1ma")
+left = NodePath("Left")
+right = NodePath("Right")
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(866, 302)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_pd4jb")
+
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(268, 296)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_pd4jb")
